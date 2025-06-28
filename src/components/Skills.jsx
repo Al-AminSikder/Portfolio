@@ -1,36 +1,29 @@
 import React from "react";
-import skills from "../data/skills";
+import { FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaReact, FaGitAlt, FaGithub } from "react-icons/fa";
 
-function SkillsBar({ name, level }) {
-  return (
-    <div className="mb-3">
-      <div className="flex justify-between mb-1">
-        <span className="font-medium">{name}</span>
-        <span className="text-sm text-gray-500">{level}%</span>
-      </div>
-      <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
-        <div
-          className="h-full bg-gradient-to-r from-cyan-400 to-indigo-500"
-          style={{ width: `${level}%` }}
-        />
-      </div>
-    </div>
-  );
-}
+const skillIcons = [
+  { name: "HTML5", icon: <FaHtml5 size={32} className="text-[#ff7867]" /> },
+  { name: "CSS", icon: <FaCss3Alt size={32} className="text-[#ff7867]" /> },
+  { name: "Javascript", icon: <FaJs size={32} className="text-[#ff7867]" /> },
+  { name: "Node.js", icon: <FaNodeJs size={32} className="text-[#ff7867]" /> },
+  { name: "React", icon: <FaReact size={32} className="text-[#ff7867]" /> },
+  { name: "Git", icon: <FaGitAlt size={32} className="text-[#ff7867]" /> },
+  { name: "Github", icon: <FaGithub size={32} className="text-[#ff7867]" /> },
+];
 
 function Skills() {
   return (
-    <section className="py-16 px-4 max-w-4xl mx-auto" id="skills">
-      <h2 className="text-3xl font-bold text-indigo-900 mb-8">Skills</h2>
-      <div className="grid md:grid-cols-3 gap-8">
-        {Object.entries(skills).map(([category, list]) => (
-          <div key={category} className="bg-white/80 rounded-lg p-6 shadow">
-            <h3 className="font-semibold text-cyan-600 mb-4 capitalize">{category}</h3>
-            {list.map((skill, idx) => (
-              <SkillsBar key={idx} {...skill} />
-            ))}
-          </div>
-        ))}
+    <section id="skills" className="bg-[#1f232a] py-16 max-w-6xl mx-auto px-6">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-3xl font-semibold mb-10 text-[#ff7867]">Skills</h2>
+        <div className="flex flex-wrap gap-8 justify-center">
+          {skillIcons.map(skill => (
+            <div key={skill.name} className="flex flex-col items-center">
+              {skill.icon}
+              <span className="mt-2 text-gray-300">{skill.name}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
