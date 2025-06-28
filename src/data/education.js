@@ -1,8 +1,8 @@
 const education = [
   {
-    degree: "BSc in Computer Science",
-    institution: "Dummy University",
-    year: "2020 - 2024",
+    degree: "MSc in Mathematics",
+    institution: "National University",
+    year: "2016 - 2017",
     details: "Relevant coursework: Data Structures, Web Development, Algorithms."
   }
 ];

@@ -20,7 +20,7 @@ function ToolsBar() {
           {tools.map((tool) => (
             <span
               key={tool}
-              className="text-gray-400 text-sm sm:text-lg font-medium hover:text-white transition cursor-pointer whitespace-nowrap"
+              className="text-gray-400 text-sm justify-between sm:text-lg font-medium hover:text-white transition cursor-pointer whitespace-nowrap"
             >
               {tool}
             </span>

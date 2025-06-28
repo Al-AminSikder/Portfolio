@@ -1,29 +1,62 @@
 import React from "react";
-import { FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaReact, FaGitAlt, FaGithub } from "react-icons/fa";
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGitAlt, FaGithub } from "react-icons/fa";
+import { SiExpress, SiMongodb } from "react-icons/si";
 
-const skillIcons = [
-  { name: "HTML5", icon: <FaHtml5 size={32} className="text-[#ff7867]" /> },
-  { name: "CSS", icon: <FaCss3Alt size={32} className="text-[#ff7867]" /> },
-  { name: "Javascript", icon: <FaJs size={32} className="text-[#ff7867]" /> },
-  { name: "Node.js", icon: <FaNodeJs size={32} className="text-[#ff7867]" /> },
-  { name: "React", icon: <FaReact size={32} className="text-[#ff7867]" /> },
-  { name: "Git", icon: <FaGitAlt size={32} className="text-[#ff7867]" /> },
-  { name: "Github", icon: <FaGithub size={32} className="text-[#ff7867]" /> },
+const skills = [
+  { name: "HTML5", icon: FaHtml5, color: "#e34c26" },
+  { name: "CSS3", icon: FaCss3Alt, color: "#1572b6" },
+  { name: "Javascript", icon: FaJs, color: "#f7df1e" },
+  { name: "React", icon: FaReact, color: "#61dafb" },
+  { name: "Node.js", icon: FaNodeJs, color: "#539e43" },
+  { name: "Express.js", icon: SiExpress, color: "#000000" },
+  { name: "MongoDB", icon: SiMongodb, color: "#47a248" },
+  { name: "Git", icon: FaGitAlt, color: "#f34f29" },
+  { name: "Github", icon: FaGithub, color: "#181717" },
 ];
 
 function Skills() {
+  // Split into two rows: first 4, then 5
+  const firstRow = skills.slice(0, 4);
+  const secondRow = skills.slice(4);
+
   return (
-    <section id="skills" className="bg-[#1f232a] py-16 max-w-6xl mx-auto px-6">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl font-semibold mb-10 text-[#ff7867]">Skills</h2>
-        <div className="flex flex-wrap gap-8 justify-center">
-          {skillIcons.map(skill => (
-            <div key={skill.name} className="flex flex-col items-center">
-              {skill.icon}
-              <span className="mt-2 text-gray-300">{skill.name}</span>
-            </div>
-          ))}
+    <section id="skills" className="bg-[#1f232a] py-16 max-w-7xl mx-auto px-2">
+      <h2 className="text-3xl font-semibold mb-10 text-[#ff7867] text-center">
+        Skills
+      </h2>
+      {/* Mobile: 2 rows, Desktop: horizontal row */}
+      <div className="block sm:hidden">
+        <div className="flex justify-center gap-6 mb-8">
+          {firstRow.map(skill => {
+            const Icon = skill.icon;
+            return (
+              <div key={skill.name} className="flex flex-col items-center min-w-[60px]">
+                <Icon size={60} style={{ color: skill.color }} />
+              </div>
+            );
+          })}
         </div>
+        <div className="flex justify-center gap-6">
+          {secondRow.map(skill => {
+            const Icon = skill.icon;
+            return (
+              <div key={skill.name} className="flex flex-col items-center min-w-[60px]">
+                <Icon size={60} style={{ color: skill.color }} />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      {/* Desktop: single horizontal row */}
+      <div className="hidden sm:flex sm:flex-nowrap sm:overflow-x-auto sm:gap-4 sm:justify-center">
+        {skills.map(skill => {
+          const Icon = skill.icon;
+          return (
+            <div key={skill.name} className="flex flex-col items-center min-w-[100px]">
+              <Icon size={100} style={{ color: skill.color }} />
+            </div>
+          );
+        })}
       </div>
     </section>
   );
