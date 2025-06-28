@@ -1,6 +1,6 @@
 import React from "react";
 import { FaReact, FaCss3Alt, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-import { SiNetlify } from "react-icons/si";
+import { SiNetlify, SiMongodb, SiExpress, SiFirebase } from "react-icons/si";
 import projects from "../data/projects";
 
 // Mapping for stack icons
@@ -8,11 +8,14 @@ const stackIcons = {
   React: <FaReact size={28} className="text-[#61dafb]" title="React" />,
   CSS: <FaCss3Alt size={28} className="text-[#1572b6]" title="CSS3" />,
   Netlify: <SiNetlify size={28} className="text-[#38af8e]" title="Netlify" />,
+  MongoDB: <SiMongodb size={28} className="text-[#47A248]" title="MongoDB" />,
+  "Express.js": <SiExpress size={28} className="text-[#fff]" title="Express.js" />,
+  Firebase: <SiFirebase size={28} className="text-[#FFCA28]" title="Firebase" />,
 };
 
 function Projects() {
   return (
-    <section id="projects" className="bg-[#181f26] py-16 max-w-7xl mx-auto px-4">
+    <section id="projects" className="bg-[#181f26] py-16 max-w-7xl mx-auto">
       <h2 className="text-3xl font-semibold mb-10 text-[#ff7867] text-center">
         Projects
       </h2>
